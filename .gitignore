@@ -13,7 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
-/config/databse.yml
+/config/database.yml
 
 /node_modules
 /yarn-error.log
@@ -21,3 +21,7 @@
 /tmp/cache
 
 .byebug_history
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
