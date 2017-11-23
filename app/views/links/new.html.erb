@@ -1,0 +1,9 @@
+<% if @link.persisted?%>
+  <%= javascript_pack_tag 'application' %>
+  <%= react_component id: 'link', link: "#{Settings.host}/links/#{@link.shorten}" %>
+<% else %>
+  <div class='wrapper'>
+    <%= render 'links/partials/errors' if @link.errors.any? %>
+    <%= render 'links/partials/form' %>
+  </div>
+<% end %>

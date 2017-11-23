@@ -1,0 +1,9 @@
+<h4>
+  Please, fix errors below:
+</h4>
+
+<ul>
+  <%- @link.errors.full_messages.each do |err| %>
+    <li><%= err %></li>
+  <% end %>
+</ul>
