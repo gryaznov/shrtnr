@@ -27,6 +27,7 @@ Metrics/AbcSize:
 
 Metrics/LineLength:
   Max: 80
+  IgnoredPatterns: ['\A\s+[A-Z]']
   Exclude:
     - spec/**/*
 
