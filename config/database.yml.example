@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password:
+
+development:
+  <<: *default
+  database: shrtnr_development
+
+test:
+  <<: *default
+  database: shrtnr_test

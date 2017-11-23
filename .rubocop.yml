@@ -1,0 +1,41 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'public/**/*'
+
+Documentation:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - spec/**/*
+
+Metrics/LineLength:
+  Max: 80
+  Exclude:
+    - spec/**/*
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - spec/**/*

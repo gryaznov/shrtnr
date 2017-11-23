@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 
+/config/databse.yml
+
 /node_modules
 /yarn-error.log
 
