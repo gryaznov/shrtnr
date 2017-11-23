@@ -5,6 +5,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
+    @link.save! ? 'ok' : 'failure'
   end
 
   def show
