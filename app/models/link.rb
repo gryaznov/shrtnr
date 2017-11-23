@@ -7,9 +7,15 @@ class Link < ApplicationRecord
   validates :shorten, uniqueness: true, allow_blank: true
 
   before_validation :set_shorten, on: :create
+  after_validation  :standartize_original, on: :create
 
   def set_shorten
     self.shorten = Link.generate_shorten
+  end
+
+  def standartize_original
+    return if %w[http https].include? URI.parse(original).scheme
+    self.original = original.prepend 'http://'
   end
 
   def self.generate_shorten

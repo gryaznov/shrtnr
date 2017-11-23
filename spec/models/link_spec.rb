@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Link, type: :model do
-  it { should validate_presence_of(:original) }
   it { should have_readonly_attribute(:shorten) }
   it { should have_db_index(:shorten) }
   # For some reason the uniqueness shoulda matcher does not work as expected
@@ -13,7 +12,7 @@ describe Link, type: :model do
     let(:validation_error) { ActiveRecord::RecordInvalid }
 
     it 'raises an error if original url is invalid' do
-      %w[www,google,com www.com google,com www.googlecom].each do |invalid|
+      %w[www,google,com google,com www.googlecom].each do |invalid|
         expect { create(:link, original: invalid) }.to raise_error(validation_error)
       end
     end
