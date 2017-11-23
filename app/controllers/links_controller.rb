@@ -5,7 +5,12 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
-    @link.save! ? 'ok' : 'failure'
+    if @link.save
+      'ok'
+    else
+      render json: @link.errors.full_messages.join('. '),
+             status: :unprocessable_entity
+    end
   end
 
   def show
@@ -17,7 +22,7 @@ class LinksController < ApplicationController
 
   private
 
-  def links_params
+  def link_params
     params.require(:link).permit(:original)
   end
 
