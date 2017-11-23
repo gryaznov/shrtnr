@@ -26,12 +26,8 @@ describe Link, type: :model do
   end
 
   describe '.generate_shorten' do
-    it 'shorten version includes shrtnr host' do
-      expect(Link.generate_shorten).to match %r{http:\/\/www.example.com\/+}
-    end
-
     it 'shorten version length is 6 characters' do
-      expect(Link.generate_shorten.gsub(%r{http:\/\/www.example.com\/}, '').length).to eq 6
+      expect(Link.generate_shorten.length).to eq 6
     end
   end
 
@@ -44,10 +40,6 @@ describe Link, type: :model do
 
     it 'shorten is not equal to the origin' do
       expect(link.shorten).not_to eq 'www.google.com'
-    end
-
-    it 'shorten starts from the correct host' do
-      expect(link.shorten).to match %r{http:\/\/www.example.com\/+}
     end
   end
 end

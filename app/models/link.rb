@@ -14,7 +14,7 @@ class Link < ApplicationRecord
 
   def self.generate_shorten
     loop do
-      suggestion = "#{Settings.host}/#{SecureRandom.hex(3)}"
+      suggestion = SecureRandom.hex(3)
       break suggestion unless exists?(shorten: suggestion)
     end
   end
